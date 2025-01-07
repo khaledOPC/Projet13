@@ -42,7 +42,7 @@ class Activity(models.Model):
 	def can_reserve(self):
 		return self.check_reservations() < self.max_participants
 
-			
+
 '''
 class pour gérer les réservations.
 '''
@@ -59,9 +59,8 @@ class Reservation(models.Model):
 	Fonction pour s'assurer que la réservation est possible et assurer la logique de la class.
 	'''
 	def save(self, *args, **kwargs):
-		if not self.can_reserve():
+		if not self.activity.can_reserve():
 			raise ValueError("Le nombre de Réservation maximum est déja atteint")
 		if self.date != self.activity.date:
 			raise ValueError("La date de Reservation ne correspond pas à celle de l'activité choisis")
 		super().save(*args, **kwargs)
-
