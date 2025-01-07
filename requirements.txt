@@ -16,3 +16,6 @@ djangorestframework
 django-cors-headers
 python-decouple
 Pillow
+djangorestframework-simplejwt
+django-allauth
+django-oauth-toolkit
